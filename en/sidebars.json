@@ -23,8 +23,7 @@
                 "ids": [
                     "installation/installation-of-a-central-server/using-centreon-iso",
                     "installation/installation-of-a-central-server/using-packages",
-                    "installation/installation-of-a-central-server/using-virtual-machines",
-                    "installation/installation-of-a-central-server/using-sources"
+                    "installation/installation-of-a-central-server/using-virtual-machines"
                 ],
                 "label": "Installation of a Central server",
                 "type": "subcategory"
@@ -44,6 +43,14 @@
                     "installation/installation-of-a-remote-server/using-packages"
                 ],
                 "label": "Installation of a Remote server",
+                "type": "subcategory"
+            },
+            {
+                "ids": [
+                    "installation/installation-using-sources/central-platform",
+                    "installation/installation-using-sources/collect-stack"
+                ],
+                "label": "Installation using sources",
                 "type": "subcategory"
             },
             "ceip/what-is-centreon-ceip"
