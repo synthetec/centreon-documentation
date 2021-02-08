@@ -21,6 +21,8 @@ commerciales, vous pouvez vous rendre sur notre
 
 ### 20.10.3
 
+`February 08, 2021`
+
 #### Améliorations
 
 - [API] Add endpoint for Topology/enableRemote
