@@ -23,6 +23,8 @@ The tested distributions and versions are:
 
 ## Centreon Gorgone
 
+### Prerequisites
+
 To install and run Centreon Gorgone, you will need the following external
 dependencies:
 
@@ -44,7 +46,7 @@ Use the system package manager to install them:
 dnf install dnf-plugins-core epel-release
 dnf config-manager --set-enabled powertools
 dnf install perl-Clone perl-Crypt-CBC perl-DBD-MySQL perl-DBD-SQLite perl-Digest-MD5-File perl-Hash-Merge perl-HTTP-Daemon perl-HTTP-Daemon-SSL perl-HTTP-Message perl-JSON-PP perl-JSON-XS perl-NetAddr-IP perl-Schedule-Cron perl-YAML perl-YAML-LibYAML rrdtool-perl zeromq libssh
-dnf install https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-CryptX-0.068-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Net-Curl-0.44-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-UUID-0.28-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-ZMQ-LibZMQ4-0.01-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-ZMQ-Constants-1.04-1.el8.noarch.rpm 
+dnf install https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-CryptX-0.068-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Net-Curl-0.44-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-UUID-0.28-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-ZMQ-LibZMQ4-0.01-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-ZMQ-Constants-1.04-1.el8.noarch.rpm
 dnf install https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RPMS/perl-Libssh-Session-0.8-2.el8.x86_64.rpm
 ```
 
@@ -52,8 +54,7 @@ dnf install https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RP
 
 ```shell
 yum install epel-release
-yum install perl-Clone perl-Crypt-CBC perl-DBD-MySQL perl-DBD-SQLite perl-Digest-MD5-File perl-HTTP-Daemon perl-HTTP-Daemon-SSL perl-HTTP-Message perl-JSON-PP perl-JSON-XS perl-NetAddr-IP perl-Schedule-Cron perl-YAML rrdtool-perl zeromq
-yum install zeromq-devel perl-Devel-CheckLib uuid-devel
+yum install perl-Clone perl-Crypt-CBC perl-DBD-MySQL perl-DBD-SQLite perl-Digest-MD5-File perl-HTTP-Daemon perl-HTTP-Daemon-SSL perl-HTTP-Message perl-JSON-PP perl-JSON-XS perl-NetAddr-IP perl-Schedule-Cron perl-YAML rrdtool-perl zeromq zeromq-devel perl-Devel-CheckLib uuid-devel
 yum install https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-CryptX-0.064-1.el7.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Hash-Merge-0.300-1.el7.noarch.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Time-ParseDate-2015.103-1.el7.noarch.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-YAML-LibYAML-0.80-1.el7.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Clone-Choose-0.010-1.el7.noarch.rpm
 yum install https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RPMS/libssh-0.9.4-1.el7.x86_64.rpm https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RPMS/perl-Libssh-Session-0.8-2.el7.x86_64.rpm
 ```
@@ -67,18 +68,26 @@ apt install perl libzmq3-dev libzmq5 libssh-dev libextutils-makemaker-cpanfile-p
 <!--openSUSE-->
 
 ```shell
-zypper install perl zeromq zeromq-devel libssh-devel perl-ExtUtils-MakeMaker perl-ExtUtils-MakeMaker-CPANfile perl-Module-Build perl-Module-Install perl-CryptX perl-Crypt-CBC perl-JSON-XS perl-JSON perl-XML-Simple perl-Net-SMTP-SSL perl-YAML perl-YAML-LibYAML perl-DBD-SQLite perl-DBD-mysql perl-DBI perl-Data-UUID perl-HTTP-Daemon perl-HTTP-Message perl-Digest-MD5 perl-Digest-Perl-MD5 perl-HTTPS-Daemon perl-NetAddr-IP perl-Hash-Merge perl-Clone perl-Time-modules perl-rrdtool
-zypper install libcurl-devel perl-ExtUtils-PkgConfig
+zypper install perl zeromq zeromq-devel libssh-devel perl-ExtUtils-MakeMaker perl-ExtUtils-MakeMaker-CPANfile perl-Module-Build perl-Module-Install perl-CryptX perl-Crypt-CBC perl-JSON-XS perl-JSON perl-XML-Simple perl-Net-SMTP-SSL perl-YAML perl-YAML-LibYAML perl-DBD-SQLite perl-DBD-mysql perl-DBI perl-Data-UUID perl-HTTP-Daemon perl-HTTP-Message perl-Digest-MD5 perl-Digest-Perl-MD5 perl-HTTPS-Daemon perl-NetAddr-IP perl-Hash-Merge perl-Clone perl-Time-modules perl-rrdtool libcurl-devel perl-ExtUtils-PkgConfig
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Other packages
 
-suse debian ubuntu
+Some packages, not available from common package managers repositories, need
+to be manually compiled and installed.
+
+You'll find below the ones identified as so. If others were to be missed,
+you will need to find them on [CPAN](https://metacpan.org/) and apply the
+same process.
+
+##### ZMQ
+
+> Needed for Debian, Ubuntu and openSUSE.
 
 ```shell
-wget http://search.cpan.org/CPAN/authors/id/M/MO/MOSCONI/ZMQ-LibZMQ4-0.01.tar.gz
+wget https://cpan.metacpan.org/authors/id/M/MO/MOSCONI/ZMQ-LibZMQ4-0.01.tar.gz
 tar zxf ZMQ-LibZMQ4-0.01.tar.gz
 cd ZMQ-LibZMQ4-0.01
 sed -i -e "s/tools/.\/tools/g" Makefile.PL
@@ -96,6 +105,10 @@ make
 make install
 ```
 
+##### Perl libssh binding
+
+> Needed for Debian, Ubuntu and openSUSE.
+
 ```shell
 git clone https://github.com/garnier-quentin/perl-libssh.git
 cd perl-libssh
@@ -104,7 +117,9 @@ make
 make install
 ```
 
-suse
+##### Net-Curl
+
+> Needed for openSUSE.
 
 ```shell
 wget https://cpan.metacpan.org/authors/id/S/SY/SYP/Net-Curl-0.48.tar.gz
@@ -115,6 +130,10 @@ make
 make install
 ```
 
+##### Digest-MD5-File
+
+> Needed for openSUSE.
+
 ```shell
 wget https://cpan.metacpan.org/authors/id/D/DM/DMUEY/Digest-MD5-File-0.08.tar.gz
 tar zxf Digest-MD5-File-0.08.tar.gz
@@ -123,6 +142,10 @@ perl Makefile.PL
 make
 make install
 ```
+
+##### Schedule-Cron
+
+> Needed for openSUSE.
 
 ```shell
 wget https://cpan.metacpan.org/authors/id/R/RO/ROLAND/Schedule-Cron-1.01.tar.gz
@@ -133,17 +156,20 @@ make
 make install
 ```
 
-centos 7
+##### UUID
+
+> Needed for CentOS 7.
 
 ```shell
 wget https://cpan.metacpan.org/authors/id/J/JR/JRM/UUID-0.28.tar.gz
 tar zxf UUID-0.28.tar.gz
 cd UUID-0.28
+perl Makefile.PL
+make
+make install
 ```
 
-### Prepare
-
-#### Get sources
+### Get the sources
 
 Centreon Gorgone can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon-gorgone)
@@ -167,7 +193,7 @@ tar xzf centreon-gorgone-x.y.z.tar.gz
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-With x.y.z being the version you want to compile.
+With x.y.z being the version you want to install.
 
 ### Install
 
@@ -177,7 +203,7 @@ Run the installation script:
 ./install.sh -i
 ```
 
-Should result to the following output (here on a Debian 10):
+It should result to the following output (here on a Debian 10):
 
 ```text
 Script requirements                                                  OK
@@ -211,7 +237,9 @@ Centreon user (CENTREON_USER)                                        centreon
 Centreon home directory (CENTREON_HOME)                              /var/spool/centreon
 Centreon configuration directory (CENTREON_ETC_DIR)                  /etc/centreon
 Centreon service (CENTREON_SERVICE)                                  centreon
+Engine user (ENGINE_USER)                                            centreon-engine
 Engine group (ENGINE_GROUP)                                          centreon-engine
+Broker user (BROKER_USER)                                            centreon-broker
 Broker group (BROKER_GROUP)                                          centreon-broker
 
 Everything looks good, proceed to installation? [y/N]
@@ -242,6 +270,8 @@ Update groups memberships
 -------------------------------------------------------------------------------------------------
 Add user 'centreon-gorgone' to group 'centreon-broker'               OK
 Add user 'centreon-gorgone' to group 'centreon-engine'               OK
+Add user 'centreon-engine' to group 'centreon-gorgone'               OK
+Add user 'centreon-broker' to group 'centreon-gorgone'               OK
 
 
 Configure and restart services
@@ -259,6 +289,47 @@ https://docs.centreon.com/current.
 Thanks for using Gorgone!
 ```
 
+#### Define specific inputs
+
+Input variables can be defined by using the `inputvars.env` file which is
+read by the installation script.
+
+The option `-e` can also be used in command line.
+
+Here is an example to install Gorgone with custom log directory:
+
+```shell
+./install.sh -i -e "GORGONE_LOG_DIR=/var/log/gorgone"
+```
+
+Below the list of available variables, their description and default value:
+
+| Variable             | Description                                        | Default value                 |
+|----------------------|----------------------------------------------------|-------------------------------|
+| `INSTALLATION_TYPE`  | Type of installation. Can be `central` or `poller` | `central`                     |
+| `GORGONE_USER`       | Gorgone user.                                      | `centreon-gorgone`            |
+| `GORGONE_GROUP`      | Gorgone group.                                     | `centreon-gorgone`            |
+| `GORGONE_ETC_DIR`    | Gorgone configuration directory.                   | `/etc/centreon-gorgone`       |
+| `GORGONE_LOG_DIR`    | Gorgone log directory.                             | `/var/log/centreon-gorgone`   |
+| `GORGONE_VARLIB_DIR` | Gorgone variable library directory.                | `/var/lib/centreon-gorgone`   |
+| `GORGONE_CACHE_DIR`  | Gorgone cache directory.                           | `/var/cache/centreon-gorgone` |
+| `CENTREON_USER`      | Centreon user.                                     | `centreon`                    |
+| `CENTREON_HOME`      | Centreon user home directory.                      | `/var/spool/centreon`         |
+| `CENTREON_ETC_DIR`   | Centreon configuration directory.                  | `/etc/centreon`               |
+| `CENTREON_SERVICE`   | Centreon systemd service name.                     | `centreon`                    |
+| `ENGINE_USER`        | Centreon Engine user.                              | `centreon-engine`             |
+| `ENGINE_GROUP`       | Centreon Engine group.                             | `centreon-engine`             |
+| `BROKER_USER`        | Centreon Broker user.                              | `centreon-broker`             |
+| `BROKER_GROUP`       | Centreon Broker group.                             | `centreon-broker`             |
+| `BINARY_DIR`         | Binaries directory.                                | `/usr/bin`                    |
+| `PERL_BINARY`        | Perl binary.                                       | `/usr/bin/perl`               |
+| `SYSTEMD_ETC_DIR`    | Systemd configuration directory.                   | `/etc/systemd/system`         |
+| `SYSCONFIG_ETC_DIR`  | Sysconfig configuration directory.                 | `/etc/sysconfig`              |
+| `SUDOERSD_ETC_DIR`   | Sudoers configuration directory.                   | `/etc/sudoers.d`              |
+| `LOGROTATED_ETC_DIR` | Logrotate configuration directory.                 | `/etc/logrotate.d`            |
+| `TMP_DIR`            | Temporary directory where source files are built.  | `/tmp/centreon-setup`         |
+| `LOG_FILE`           | Installation script log file.                      | `$BASE_DIR/log/install.log`   |
+
 ## Centreon Web
 
 ### Prerequisites
@@ -273,7 +344,8 @@ dependencies:
 - Composer, a PHP package manager (if using GitHub sources),
 - npm, a JavaScript package manager (if using GitHub sources),
 - Perl 5 and some Perl libraries,
-- RRDTool 1.7, the database management system to store metrics and draw graphs.
+- RRDTool 1.7, the database management system to store metrics and draw
+  graphs.
 
 Use the system package manager to install them:
 
@@ -286,6 +358,7 @@ dnf install dnf-plugins-core epel-release wget
 dnf config-manager --set-enabled powertools
 dnf module reset php
 dnf module enable php:7.3
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash mariadb_repo_setup --mariadb-server-version="mariadb-10.5"
 dnf remove mariadb-connector-c
 dnf install httpd MariaDB-client MariaDB-common MariaDB-shared MariaDB-server net-snmp net-snmp-libs net-snmp-perl net-snmp-utils perl perl-Crypt-DES perl-DBD-MySQL perl-DBI perl-Digest-HMAC perl-Digest-SHA1 perl-HTML-Parser perl-IO-Socket-INET6 perl-Socket6 perl-Sys-Syslog php php-zip php-xml php-fpm php-process php-common php-pdo php-intl php-json php-mysqlnd php-ldap php-gd php-cli php-mbstring php-snmp rrdtool rsync sudo mailx
@@ -388,6 +461,8 @@ on wether the database is installed on the same server as Centreon or not.
 
 ### Prepare the sources
 
+#### Get the sources
+
 Centreon Web can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon)
 or downloaded from Centreon
@@ -410,7 +485,7 @@ tar xzf centreon-web-x.y.z.tar.gz
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-With x.y.z being the version you want to compile.
+With x.y.z being the version you want to install.
 
 #### Composer
 
@@ -542,7 +617,7 @@ cd /path_to_centreon_web
 ./install.sh -i
 ```
 
-Should result to the following output (here on a Debian 10):
+It should result to the following output (here on a Debian 10):
 
 ```text
 Script requirements                                                  OK
@@ -660,6 +735,8 @@ Thanks for using Centreon!
 Follow us on https://github.com/centreon/centreon!
 ```
 
+#### Define specific inputs
+
 Input variables can be defined by using the `inputvars.env` file which is
 read by the installation script.
 
@@ -674,7 +751,7 @@ Here is an example to install Centreon with HTTPS:
     -e "HTTPS_CERTIFICATE_KEY_FILE=/etc/pki/tls/private/website.key"
 ```
 
-Here's the list of available variables and their description:
+Below the list of available variables, their description and default value:
 
 | Variable                     | Description                                                                             | Default value                       |
 |------------------------------|-----------------------------------------------------------------------------------------|-------------------------------------|
@@ -735,7 +812,7 @@ Here's the list of available variables and their description:
 | `MARIADB_SOCKET`             | MariaDB socket file.                                                                    | auto detection                      |
 | `RRDTOOL_BINARY`             | RRDTool binary.                                                                         | `/usr/bin/rrdtool`                  |
 | `MAIL_BINARY`                | Mail binary.                                                                            | `/usr/bin/mail`                     |
-| `PERL_BINARY`                | Perl binary                                                                             | `/usr/bin/perl`                     |
+| `PERL_BINARY`                | Perl binary.                                                                            | `/usr/bin/perl`                     |
 | `SYSTEMD_ETC_DIR`            | Systemd configuration directory.                                                        | `/etc/systemd/system`               |
 | `SYSCONFIG_ETC_DIR`          | Sysconfig configuration directory.                                                      | `/etc/sysconfig`                    |
 | `SUDOERSD_ETC_DIR`           | Sudoers configuration directory.                                                        | `/etc/sudoers.d`                    |
@@ -744,6 +821,31 @@ Here's the list of available variables and their description:
 | `LOGROTATED_ETC_DIR`         | Logrotate configuration directory.                                                      | `/etc/logrotate.d`                  |
 | `TMP_DIR`                    | Temporary directory where source files are built.                                       | `/tmp/centreon-setup`               |
 | `LOG_FILE`                   | Installation script log file.                                                           | `$BASE_DIR/log/install.log`         |
+
+#### Troubleshooting
+
+You may encounter errors when requirements are checked, which don't
+necessarily mean that the provided inputs are wrong, but often mean that
+the system does not have all needed directories or files.
+
+Here is an example with both MariaDB and PHP FPM systemd's drop-in
+directories, which are auto determined by concatenating `SYSTEMD_ETC_DIR`
+and the found `MARIADB_SERVICE` and `PHPFPM_SERVICE`.
+
+```text
+Centreon installation requirements
+-------------------------------------------------------------------------------------------------
+Checking installation requirements                                   FAILED
+
+Errors:
+  Cannot find directory '/lib/systemd/system/mariadb.service.d' from variable 'MARIADB_SERVICE_DIR' (MariaDB systemd directory)
+  Cannot find directory '/lib/systemd/system/php7.3-fpm.service.d' from variable 'PHPFPM_SERVICE_DIR' (PHP FPM service directory)
+```
+
+You can then either change one of the previously mentioned inputs, or
+directly the ones mentioned in the errors strings.
+
+To do so, edit the `inputvars.env` file.
 
 ### Finalize installation through web UI
 

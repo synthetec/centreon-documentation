@@ -91,7 +91,7 @@ yum install gcc gcc-c++ make cmake3 pkgconfig
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
 ```shell
-apt-get install gcc g++ make cmake pkg-config
+apt install gcc g++ make cmake pkg-config
 ```
 
 <!--openSUSE-->
@@ -104,7 +104,7 @@ zypper install gcc gcc-c++ make cmake pkg-config
 
 ### Build
 
-#### Get sources
+#### Get the sources
 
 Centreon Clib can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon-clib)
@@ -143,11 +143,7 @@ cd /path_to_centreon_clib/build
 Then, launch the *cmake* command that will prepare the compilation
 environment.
 
-Recommended command for your distribution:
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS 8-->
+Recommended command for any distribution:
 
 ```shell
 cmake \
@@ -157,41 +153,6 @@ cmake \
     -DWITH_TESTING=Off \
     -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig ..
 ```
-
-<!--CentOS 7-->
-
-```shell
-cmake3 \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_LIB=/usr/lib \
-    -DWITH_TESTING=Off \
-    -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig ..
-```
-
-<!--Debian / Raspberry Pi OS / Ubuntu-->
-
-```shell
-cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_LIB=/usr/lib \
-    -DWITH_TESTING=Off \
-    -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig ..
-```
-
-<!--openSUSE-->
-
-```shell
-cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_LIB=/usr/lib \
-    -DWITH_TESTING=Off \
-    -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig ..
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -282,7 +243,7 @@ dependencies:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 | Software                    | Package name                        |
 |-----------------------------|-------------------------------------|
@@ -328,7 +289,7 @@ Use the system package manager to install them:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 ```shell
 dnf install gcc gcc-c++ make cmake pkgconf-pkg-config python3-pip git
@@ -343,7 +304,7 @@ yum install gcc gcc-c++ make cmake3 pkgconfig python3-pip git
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
 ```shell
-apt-get install gcc g++ make cmake pkg-config python3-pip git
+apt install gcc g++ make cmake pkg-config python3-pip git
 ```
 
 <!--openSUSE-->
@@ -382,7 +343,7 @@ Follow the [above procedure](#centreon-clib) to install Centreon Clib.
 
 ### Build
 
-#### Get sources
+#### Get the sources
 
 Centreon Engine can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon-engine)
@@ -446,16 +407,11 @@ conan install --build missing --settings compiler.libcxx=libstdc++ ..
 Finally, launch the *cmake* command that will prepare the compilation
 environment.
 
-Recommended command for your distribution:
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS 8-->
+Recommended command for any distribution:
 
 ```shell
 cmake \
     -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=On \
     -DWITH_CREATE_FILES=On \
     -DWITH_GROUP=centreon-engine \
     -DWITH_LOGROTATE_SCRIPT=On \
@@ -472,77 +428,6 @@ cmake \
     -DWITH_USER=centreon-engine \
     -DWITH_VAR_DIR=/var/log/centreon-engine ..
 ```
-
-<!--CentOS 7-->
-
-```shell
-cmake3 \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=Off \
-    -DWITH_CREATE_FILES=On \
-    -DWITH_GROUP=centreon-engine \
-    -DWITH_LOGROTATE_SCRIPT=On \
-    -DWITH_PKGCONFIG_SCRIPT=On \
-    -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BIN=/usr/sbin \
-    -DWITH_PREFIX_CONF=/etc/centreon-engine \
-    -DWITH_RW_DIR=/var/lib/centreon-engine/rw \
-    -DWITH_SAMPLE_CONFIG=Off \
-    -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
-    -DWITH_STARTUP_SCRIPT=systemd \
-    -DWITH_TESTING=Off \
-    -DWITH_USER=centreon-engine \
-    -DWITH_VAR_DIR=/var/log/centreon-engine ..
-```
-
-<!--Debian / Raspberry Pi OS / Ubuntu-->
-
-```shell
-cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=On \
-    -DWITH_CREATE_FILES=On \
-    -DWITH_GROUP=centreon-engine \
-    -DWITH_LOGROTATE_SCRIPT=On \
-    -DWITH_PKGCONFIG_SCRIPT=On \
-    -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BIN=/usr/sbin \
-    -DWITH_PREFIX_CONF=/etc/centreon-engine \
-    -DWITH_RW_DIR=/var/lib/centreon-engine/rw \
-    -DWITH_SAMPLE_CONFIG=Off \
-    -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
-    -DWITH_STARTUP_SCRIPT=systemd \
-    -DWITH_TESTING=Off \
-    -DWITH_USER=centreon-engine \
-    -DWITH_VAR_DIR=/var/log/centreon-engine ..
-```
-
-<!--openSUSE-->
-
-```shell
-cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=On \
-    -DWITH_CREATE_FILES=On \
-    -DWITH_GROUP=centreon-engine \
-    -DWITH_LOGROTATE_SCRIPT=On \
-    -DWITH_PKGCONFIG_SCRIPT=On \
-    -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BIN=/usr/sbin \
-    -DWITH_PREFIX_CONF=/etc/centreon-engine \
-    -DWITH_RW_DIR=/var/lib/centreon-engine/rw \
-    -DWITH_SAMPLE_CONFIG=Off \
-    -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
-    -DWITH_STARTUP_SCRIPT=systemd \
-    -DWITH_TESTING=Off \
-    -DWITH_USER=centreon-engine \
-    -DWITH_VAR_DIR=/var/log/centreon-engine ..
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -671,7 +556,7 @@ dependencies:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 | Software                    | Package name                        |
 |-----------------------------|-------------------------------------|
@@ -744,6 +629,13 @@ dnf config-manager --set-enabled powertools
 dnf install gcc gcc-c++ make cmake pkgconf-pkg-config python3-pip git mariadb-devel rrdtool-devel lua-devel gnutls-devel libgcrypt-devel
 ```
 
+<!--Oracle Linux 8-->
+
+```shell
+dnf config-manager --set-enabled ol8_codeready_builder
+dnf install gcc gcc-c++ make cmake pkgconf-pkg-config python3-pip git mariadb-devel rrdtool-devel lua-devel gnutls-devel libgcrypt-devel
+```
+
 <!--CentOS 7-->
 
 ```shell
@@ -753,7 +645,7 @@ yum install gcc gcc-c++ make cmake3 pkgconfig python3-pip git mariadb-devel rrdt
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
 ```shell
-apt-get install gcc g++ make cmake pkg-config python3-pip git libmariadb-dev librrd-dev liblua5.3-dev libgnutls28-dev libgcrypt20-dev
+apt install gcc g++ make cmake pkg-config python3-pip git libmariadb-dev librrd-dev liblua5.3-dev libgnutls28-dev libgcrypt20-dev
 ```
 
 <!--openSUSE-->
@@ -765,6 +657,8 @@ zypper install gcc gcc-c++ make cmake pkg-config python3-pip git libmariadb-deve
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Conan
+
+> To be done if not previously.
 
 Upgrade pip to the latest version available:
 
@@ -788,7 +682,7 @@ The C++ dependencies will be installed in the next chapter.
 
 ### Build
 
-#### Get sources
+#### Get the sources
 
 Centreon Broker can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon-broker)
@@ -849,16 +743,11 @@ conan install --build missing --settings compiler.libcxx=libstdc++ ..
 Finally, launch the *cmake* command that will prepare the compilation
 environment.
 
-Recommended command for your distribution:
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS 8-->
+Recommended command for any distribution:
 
 ```shell
 cmake \
     -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=Off \
     -DWITH_CONFIG_FILES=On \
     -DWITH_DAEMONS='central-rrd;central-broker' \
     -DWITH_GROUP=centreon-broker \
@@ -873,71 +762,6 @@ cmake \
     -DWITH_TESTING=Off \
     -DWITH_USER=centreon-broker ..
 ```
-
-<!--CentOS 7-->
-
-```shell
-cmake3 \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=Off \
-    -DWITH_CONFIG_FILES=On \
-    -DWITH_DAEMONS='central-rrd;central-broker' \
-    -DWITH_GROUP=centreon-broker \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BIN=/usr/sbin \
-    -DWITH_PREFIX_CONF=/etc/centreon-broker \
-    -DWITH_PREFIX_MODULES=/usr/share/centreon/lib/centreon-broker \
-    -DWITH_PREFIX_LIB=/usr/lib/centreon-broker \
-    -DWITH_PREFIX_VAR=/var/lib/centreon-broker \
-    -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
-    -DWITH_STARTUP_SCRIPT=systemd \
-    -DWITH_TESTING=Off \
-    -DWITH_USER=centreon-broker ..
-```
-
-<!--Debian / Raspberry Pi OS / Ubuntu-->
-
-```shell
-cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=On \
-    -DWITH_CONFIG_FILES=On \
-    -DWITH_DAEMONS='central-rrd;central-broker' \
-    -DWITH_GROUP=centreon-broker \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BIN=/usr/sbin \
-    -DWITH_PREFIX_CONF=/etc/centreon-broker \
-    -DWITH_PREFIX_MODULES=/usr/share/centreon/lib/centreon-broker \
-    -DWITH_PREFIX_LIB=/usr/lib/centreon-broker \
-    -DWITH_PREFIX_VAR=/var/lib/centreon-broker \
-    -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
-    -DWITH_STARTUP_SCRIPT=systemd \
-    -DWITH_TESTING=Off \
-    -DWITH_USER=centreon-broker ..
-```
-
-<!--openSUSE-->
-
-```shell
-cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DUSE_CXX11_ABI=On \
-    -DWITH_CONFIG_FILES=On \
-    -DWITH_DAEMONS='central-rrd;central-broker' \
-    -DWITH_GROUP=centreon-broker \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BIN=/usr/sbin \
-    -DWITH_PREFIX_CONF=/etc/centreon-broker \
-    -DWITH_PREFIX_MODULES=/usr/share/centreon/lib/centreon-broker \
-    -DWITH_PREFIX_LIB=/usr/lib/centreon-broker \
-    -DWITH_PREFIX_VAR=/var/lib/centreon-broker \
-    -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
-    -DWITH_STARTUP_SCRIPT=systemd \
-    -DWITH_TESTING=Off \
-    -DWITH_USER=centreon-broker ..
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -1065,7 +889,7 @@ external dependencies:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 | Software                    | Package name                        |
 |-----------------------------|-------------------------------------|
@@ -1130,6 +954,12 @@ dnf install epel-release
 dnf install gcc gcc-c++ make cmake pkgconf-pkg-config python3-pip git perl-devel perl-ExtUtils-Embed libssh2-devel libgcrypt-devel
 ```
 
+<!--Oracle Linux 8-->
+
+```shell
+dnf install gcc gcc-c++ make cmake pkgconf-pkg-config python3-pip git perl-devel perl-ExtUtils-Embed libssh2-devel libgcrypt-devel
+```
+
 <!--CentOS 7-->
 
 ```shell
@@ -1139,7 +969,7 @@ yum install gcc gcc-c++ make cmake3 pkgconfig python3-pip git perl-devel perl-Ex
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
 ```shell
-apt-get install gcc g++ make cmake pkg-config python3-pip git libperl-dev libssh2-1-dev libgcrypt-dev
+apt install gcc g++ make cmake pkg-config python3-pip git libperl-dev libssh2-1-dev libgcrypt-dev
 ```
 
 <!--openSUSE-->
@@ -1151,6 +981,8 @@ zypper install gcc gcc-c++ make cmake pkg-config python3-pip git perl libssh2-de
 <!--END_DOCUSAURUS_CODE_TABS-->
 
 #### Conan
+
+> To be done if not previously.
 
 Upgrade pip to the latest version available:
 
@@ -1178,7 +1010,7 @@ Follow the [above procedure](#centreon-clib) to install Centreon Clib.
 
 ### Build
 
-#### Get sources
+#### Get the sources
 
 Centreon Connectors can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon-connectors)
@@ -1239,11 +1071,7 @@ conan install --build missing --settings compiler.libcxx=libstdc++ ..
 Finally, launch the *cmake* command that will prepare the compilation
 environment.
 
-Recommended command for your distribution:
-
-<!--DOCUSAURUS_CODE_TABS-->
-
-<!--CentOS 8-->
+Recommended command for any distribution:
 
 ```shell
 cmake \
@@ -1251,35 +1079,6 @@ cmake \
     -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector  \
     -DWITH_TESTING=Off ..
 ```
-
-<!--CentOS 7-->
-
-```shell
-cmake3 \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector  \
-    -DWITH_TESTING=Off ..
-```
-
-<!--Debian / Raspberry Pi OS / Ubuntu-->
-
-```shell
-cmake \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector  \
-    -DWITH_TESTING=Off ..
-```
-
-<!--openSUSE-->
-
-```shell
-cmake \
-    -DWITH_PREFIX=/usr \
-    -DWITH_PREFIX_BINARY=/usr/lib/centreon-connector  \
-    -DWITH_TESTING=Off ..
-```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -1351,33 +1150,33 @@ dependencies:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 7-->
-
-| Software  | Package name                                                                                                               |
-|-----------|----------------------------------------------------------------------------------------------------------------------------|
-| Perl      | perl                                                                                                                       |
-| Libraries | perl-XML-LibXML perl-JSON perl-libwww-perl perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg |
-
 <!--CentOS 8-->
 
-| Software  | Package name                                                                                                               |
-|-----------|----------------------------------------------------------------------------------------------------------------------------|
-| Perl      | perl                                                                                                                       |
-| Libraries | perl-XML-LibXML perl-JSON perl-libwww-perl perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg |
+| Software  | Package name                                                                                                                                                                                                                                            |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Perl      | perl                                                                                                                                                                                                                                                    |
+| Libraries | perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-libwww-perl perl-URI perl-LWP-Protocol-https perl-IO-Socket-SSL perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg perl-Time-HiRes perl-DateTime net-snmp-perl |
+
+<!--CentOS 7-->
+
+| Software  | Package name                                                                                                                                                                                                                                            |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Perl      | perl                                                                                                                                                                                                                                                    |
+| Libraries | perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-libwww-perl perl-URI perl-LWP-Protocol-https perl-IO-Socket-SSL perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg perl-Time-HiRes perl-DateTime net-snmp-perl |
 
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
-| Software  | Package name                                                                                                                                                                                                                          |
-|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Perl      | perl                                                                                                                                                                                                                                  |
-| Libraries | libxml-libxml-perl libjson-perl libwww-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl |
+| Software  | Package name                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Perl      | perl                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Libraries | libxml-libxml-perl libjson-perl libjson-xs-perl libjson-path-perl libwww-perl liblwp-useragent-perl liblwp-protocol-https-perl libio-socket-ssl-perl liburi-perl libhttp-proxypac-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl libtime-hires-perl libnet-snmp-perl |
 
 <!--openSUSE-->
 
-| Software  | Package name                                                                                                               |
-|-----------|----------------------------------------------------------------------------------------------------------------------------|
-| Perl      | perl                                                                                                                       |
-| Libraries | perl-XML-LibXML perl-JSON perl-libwww-perl perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg |
+| Software  | Package name                                                                                                                                                                                                                                            |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Perl      | perl                                                                                                                                                                                                                                                    |
+| Libraries | perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-libwww-perl perl-URI perl-LWP-Protocol-https perl-IO-Socket-SSL perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg perl-Time-HiRes perl-DateTime net-snmp-perl |
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
@@ -1385,33 +1184,36 @@ Use the system package manager to install them:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
+<!--CentOS / Oracle Linux 8-->
+
+```shell
+dnf install perl perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-libwww-perl perl-URI perl-LWP-Protocol-https perl-IO-Socket-SSL perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg perl-Time-HiRes perl-DateTime net-snmp-perl
+```
+
 <!--CentOS 7-->
 
 ```shell
-yum install perl perl-XML-LibXML perl-JSON perl-libwww-perl perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg
-```
-
-<!--CentOS 8-->
-
-```shell
-dnf install perl perl-XML-LibXML perl-JSON perl-libwww-perl perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg
+yum install perl perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-libwww-perl perl-URI perl-LWP-Protocol-https perl-IO-Socket-SSL perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg perl-Time-HiRes perl-DateTime net-snmp-perl
 ```
 
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
 ```shell
-apt-get install perl libxml-libxml-perl libjson-perl libwww-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl
+apt install perl libxml-libxml-perl libjson-perl libjson-xs-perl libjson-path-perl libwww-perl liblwp-useragent-perl liblwp-protocol-https-perl libio-socket-ssl-perl liburi-perl libhttp-proxypac-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl libtime-hires-perl libnet-snmp-perl
 ```
 
 <!--openSUSE-->
 
 ```shell
-zypper install perl perl-XML-LibXML perl-JSON perl-libwww-perl perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-mysql perl-DBD-Pg
+zypper install perl perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-libwww-perl perl-URI perl-LWP-Protocol-https perl-IO-Socket-SSL perl-XML-XPath perl-Net-Telnet perl-Net-DNS perl-DBI perl-DBD-MySQL perl-DBD-Pg perl-Time-HiRes perl-DateTime net-snmp-perl
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-### Get sources
+> Many other Perl libraries need to be installed depending on which Plugin
+> you are using.
+
+### Get the sources
 
 Centreon Plugins can be checked out from the
 [GitHub repository](https://github.com/centreon/centreon-plugins)
