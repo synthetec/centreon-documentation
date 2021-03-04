@@ -19,9 +19,11 @@ The tested distributions and versions are:
 |-----------------|---------|------|--------|--------|------------|---------|
 | CentOS          | 8.3     | o    | o      | o      | o          | o       |
 | CentOS          | 7.9     | o    | o      | o      | o          | o       |
+| Oracle          | 8.3     | o    | o      | o      | o          | o       |
 | Debian          | 10.8    | o    | o      | o      | o          | o       |
 | Raspberry Pi OS | 10.7    | o    | o      | o      | o          | o       |
 | Ubuntu          | 20.10   | o    | o      | o      | o          | o       |
+| Ubuntu          | 20.04   | o    | o      | o      | o          | o       |
 | openSUSE Leap   | 15.2    | o    | o      | o      | o          | o       |
 
 ## Centreon Clib
@@ -35,7 +37,7 @@ To build Centreon Clib, you will need the following external dependencies:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 | Software                    | Package name                        |
 |-----------------------------|-------------------------------------|
@@ -69,7 +71,7 @@ Use the system package manager to install them:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS 8 / Oracle Linux-->
 
 ```shell
 dnf install gcc gcc-c++ make cmake pkgconf-pkg-config
@@ -153,6 +155,8 @@ cmake \
     -DWITH_TESTING=Off \
     -DWITH_PKGCONFIG_DIR=/usr/lib/pkgconfig ..
 ```
+
+> For CentOS 7 use `cmake3` binary.
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -428,6 +432,8 @@ cmake \
     -DWITH_USER=centreon-engine \
     -DWITH_VAR_DIR=/var/log/centreon-engine ..
 ```
+
+> For CentOS 7 use `cmake3` binary.
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -754,14 +760,17 @@ cmake \
     -DWITH_PREFIX=/usr \
     -DWITH_PREFIX_BIN=/usr/sbin \
     -DWITH_PREFIX_CONF=/etc/centreon-broker \
-    -DWITH_PREFIX_MODULES=/usr/share/centreon/lib/centreon-broker \
+    -DWITH_PREFIX_MODULES=/usr/share/centreon-broker \
     -DWITH_PREFIX_LIB=/usr/lib/centreon-broker \
     -DWITH_PREFIX_VAR=/var/lib/centreon-broker \
+    -DWITH_PREFIX_LOG=/var/log/centreon-broker \
     -DWITH_STARTUP_DIR=/usr/lib/systemd/system/ \
     -DWITH_STARTUP_SCRIPT=systemd \
     -DWITH_TESTING=Off \
     -DWITH_USER=centreon-broker ..
 ```
+
+> For CentOS 7 use `cmake3` binary.
 
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
@@ -815,6 +824,7 @@ Here's the list of available variables and their description:
 | `WITH_PREFIX_LIB`                        | Where shared objects (like cbmod.so) will be installed.                                                                             | `${WITH_PREFIX}/lib`                     |
 | `WITH_PREFIX_MODULES`                    | Where Centreon Broker modules will be installed.                                                                                    | `${WITH_PREFIX_LIB}/centreon-broker`     |
 | `WITH_PREFIX_VAR`                        | Centreon Broker runtime directory.                                                                                                  | `${WITH_PREFIX}/var`                     |
+| `WITH_PREFIX_LOG`                        | Centreon Broker log directory.                                                                                                      | `${WITH_PREFIX}/log`                     |
 | `WITH_STARTUP_DIR`                       | Define the startup directory.                                                                                                       | auto detection                           |
 | `WITH_STARTUP_SCRIPT`                    | Generate and install startup script.                                                                                                | auto detection                           |
 | `WITH_TESTING`                           | Enable build of unit tests. Disabled by default.                                                                                    | `Off`                                    |
@@ -1080,6 +1090,8 @@ cmake \
     -DWITH_TESTING=Off ..
 ```
 
+> For CentOS 7 use `cmake3` binary.
+
 At this step, the software will check for existence and usability of the
 prerequisites. If one cannot be found, an appropriate error message will
 be printed. Otherwise an installation summary will be printed.
@@ -1169,7 +1181,7 @@ dependencies:
 | Software  | Package name                                                                                                                                                                                                                                                                                                                                                                                                         |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Perl      | perl                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Libraries | libxml-libxml-perl libjson-perl libjson-xs-perl libjson-path-perl libwww-perl liblwp-useragent-perl liblwp-protocol-https-perl libio-socket-ssl-perl liburi-perl libhttp-proxypac-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl libtime-hires-perl libnet-snmp-perl |
+| Libraries | libxml-libxml-perl libjson-perl libjson-xs-perl libjson-path-perl libwww-perl liblwp-protocol-https-perl libio-socket-ssl-perl liburi-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl libtime-hires-perl libnet-snmp-perl |
 
 <!--openSUSE-->
 
@@ -1199,7 +1211,7 @@ yum install perl perl-Pod-Parser perl-JSON perl-JSON-XS perl-XML-LibXML perl-lib
 <!--Debian / Raspberry Pi OS / Ubuntu-->
 
 ```shell
-apt install perl libxml-libxml-perl libjson-perl libjson-xs-perl libjson-path-perl libwww-perl liblwp-useragent-perl liblwp-protocol-https-perl libio-socket-ssl-perl liburi-perl libhttp-proxypac-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl libtime-hires-perl libnet-snmp-perl
+apt install perl libxml-libxml-perl libjson-perl libjson-xs-perl libjson-path-perl libwww-perl liblwp-protocol-https-perl libio-socket-ssl-perl liburi-perl libxml-xpath-perl libnet-telnet-perl libnet-ntp-perl libnet-dns-perl libnet-ldap-perl libdbi-perl libdbd-mysql-perl libdbd-pg-perl libdatetime-perl liburi-encode-perl libdate-manip-perl libtime-hires-perl libnet-snmp-perl
 ```
 
 <!--openSUSE-->

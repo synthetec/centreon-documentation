@@ -17,6 +17,7 @@ The tested distributions and versions are:
 |-----------------|---------|---------|-----|
 | CentOS          | 8.3     | o       | o   |
 | CentOS          | 7.9     | o       | o   |
+| Oracle          | 8.3     | o       | o   |
 | Debian          | 10.8    | o       | o   |
 | Ubuntu          | 20.10   | o       | o   |
 | openSUSE Leap   | 15.2    | o       | o   |
@@ -57,6 +58,16 @@ yum install epel-release
 yum install perl-Clone perl-Crypt-CBC perl-DBD-MySQL perl-DBD-SQLite perl-Digest-MD5-File perl-HTTP-Daemon perl-HTTP-Daemon-SSL perl-HTTP-Message perl-JSON-PP perl-JSON-XS perl-NetAddr-IP perl-Schedule-Cron perl-YAML rrdtool-perl zeromq zeromq-devel perl-Devel-CheckLib uuid-devel
 yum install https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-CryptX-0.064-1.el7.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Hash-Merge-0.300-1.el7.noarch.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Time-ParseDate-2015.103-1.el7.noarch.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-YAML-LibYAML-0.80-1.el7.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Clone-Choose-0.010-1.el7.noarch.rpm
 yum install https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RPMS/libssh-0.9.4-1.el7.x86_64.rpm https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RPMS/perl-Libssh-Session-0.8-2.el7.x86_64.rpm
+```
+
+<!--Oracle Linux 8-->
+
+```shell
+dnf install oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+dnf install perl-Clone perl-Crypt-CBC perl-DBD-MySQL perl-DBD-SQLite perl-Digest-MD5-File perl-Hash-Merge perl-HTTP-Daemon perl-HTTP-Daemon-SSL perl-HTTP-Message perl-JSON-PP perl-JSON-XS perl-NetAddr-IP perl-Schedule-Cron perl-YAML perl-YAML-LibYAML rrdtool-perl zeromq libssh
+dnf install https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-CryptX-0.068-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-Net-Curl-0.44-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-UUID-0.28-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-ZMQ-LibZMQ4-0.01-1.el8.x86_64.rpm https://github.com/centreon/centreon-gorgone/raw/master/packaging/packages/perl-ZMQ-Constants-1.04-1.el8.noarch.rpm
+dnf install https://github.com/garnier-quentin/perl-libssh/raw/master/contrib/RPMS/perl-Libssh-Session-0.8-2.el8.x86_64.rpm
 ```
 
 <!--Debian / Ubuntu-->
@@ -373,6 +384,19 @@ bash mariadb_repo_setup --mariadb-server-version="mariadb-10.5"
 yum install httpd24-httpd MariaDB-client MariaDB-common MariaDB-shared MariaDB-server net-snmp net-snmp-libs net-snmp-perl net-snmp-utils perl perl-Crypt-DES perl-DBD-MySQL perl-DBI perl-Digest-HMAC perl-Digest-SHA1 perl-HTML-Parser perl-IO-Socket-INET6 perl-Socket6 perl-Sys-Syslog rh-php73 rh-php73-php-zip rh-php73-php-xml rh-php73-php-fpm rh-php73-php-process rh-php73-php-common rh-php73-php-pdo rh-php73-php-intl rh-php73-php-json rh-php73-php-mysqlnd rh-php73-php-ldap rh-php73-php-gd rh-php73-php-cli rh-php73-php-mbstring rh-php73-php-snmp rrdtool rsync sudo mailx
 ```
 
+<!--Oracle Linux 8-->
+
+```shell
+yum install oracle-epel-release-el8 wget
+dnf config-manager --set-enabled ol8_codeready_builder
+dnf module reset php
+dnf module enable php:7.3
+wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
+bash mariadb_repo_setup --mariadb-server-version="mariadb-10.5"
+dnf remove mariadb-connector-c
+dnf install httpd MariaDB-client MariaDB-common MariaDB-shared MariaDB-server net-snmp net-snmp-libs net-snmp-perl net-snmp-utils perl perl-Crypt-DES perl-DBD-MySQL perl-DBI perl-Digest-HMAC perl-Digest-SHA1 perl-HTML-Parser perl-IO-Socket-INET6 perl-Socket6 perl-Sys-Syslog php php-zip php-xml php-fpm php-process php-common php-pdo php-intl php-json php-mysqlnd php-ldap php-gd php-cli php-mbstring php-snmp rrdtool rsync sudo mailx
+```
+
 <!--Debian-->
 
 ```shell
@@ -444,6 +468,7 @@ Secure the installation of MariaDB by running the tool provided for this
 purpose:
 
 ```shell
+systemctl start mariadb
 mariadb-secure-installation
 ```
 
@@ -495,7 +520,7 @@ Install Composer:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 ```shell
 wget https://getcomposer.org/installer -O composer-setup.php
@@ -529,7 +554,7 @@ Then install the PHP dependencies from Centreon Web source folder:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 ```shell
 cd /path_to_centreon_web
@@ -567,7 +592,7 @@ Install Node.js:
 
 <!--DOCUSAURUS_CODE_TABS-->
 
-<!--CentOS 8-->
+<!--CentOS / Oracle Linux 8-->
 
 ```shell
 wget -qO- https://rpm.nodesource.com/setup_15.x | bash
