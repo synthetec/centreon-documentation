@@ -20,6 +20,7 @@ The tested distributions and versions are:
 | Oracle          | 8.3     | o       | o   |
 | Debian          | 10.8    | o       | o   |
 | Ubuntu          | 20.10   | o       | o   |
+| Ubuntu          | 20.04   | o       | o   |
 | openSUSE Leap   | 15.2    | o       | o   |
 
 ## Centreon Gorgone
@@ -412,6 +413,7 @@ apt install apache2 bsd-mailx libcrypt-des-perl libdigest-hmac-perl libdigest-sh
 <!--Ubuntu-->
 
 ```shell
+apt install wget apt-transport-https lsb-release ca-certificates
 add-apt-repository ppa:ondrej/php
 wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
 bash mariadb_repo_setup --mariadb-server-version="mariadb-10.5" --os-type=ubuntu --os-version=focal
