@@ -866,7 +866,7 @@ Checking installation requirements                                   FAILED
 
 Errors:
   Cannot find directory '/lib/systemd/system/mariadb.service.d' from variable 'MARIADB_SERVICE_DIR' (MariaDB systemd directory)
-  Cannot find directory '/lib/systemd/system/php7.3-fpm.service.d' from variable 'PHPFPM_SERVICE_DIR' (PHP FPM service directory)
+  Cannot find directory '/lib/systemd/system/php7.3-fpm.service.d' from variable 'PHPFPM_SERVICE_DIR' (PHP FPM systemd directory)
 ```
 
 You can then either change one of the previously mentioned inputs, or
