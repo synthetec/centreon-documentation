@@ -21,7 +21,7 @@ Use cases below are some examples of what we've done so far with our community u
 
 That screenshot of a Service detailed page highlights the main Centreon concepts you must get to follow this guide. Pretty simple right?  
 
-![image](../assets/integrations/plugin-packs/tutorials/virtual-curves_01_concepts.png)
+![image](../../assets/integrations/plugin-packs/tutorials/virtual-curves_01_concepts.png)
 
 ## How it works 
 
@@ -39,7 +39,7 @@ For its parts, the configuration file defines:
 
 The case here is to get the total IN and OUT bandwidth usage on these two hosts: 
 
-![image](../assets/integrations/plugin-packs/tutorials/virtual-curves_02_target_resources.png)
+![image](../../assets/integrations/plugin-packs/tutorials/virtual-curves_02_target_resources.png)
 
 Here is how the configuration file looks like: 
 
