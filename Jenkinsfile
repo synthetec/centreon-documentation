@@ -35,6 +35,7 @@ try {
       stash name: 'vanilla-build', includes: 'vanilla.tar.gz'
       publishHTML([
         reportDir: 'preview',
+        keepAll: false,
         reportFiles: 'index.html',
         reportName: 'Centreon documentation preview'
       ])
