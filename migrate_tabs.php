@@ -2,6 +2,7 @@
 
 // scan files which end with .md (scandir)
 
+$files = ['./en/toto.md'];
 foreach ($files as $file) {
     $content = file_get_contents($file);
     if (preg_match($content, regex, $matches)) {
