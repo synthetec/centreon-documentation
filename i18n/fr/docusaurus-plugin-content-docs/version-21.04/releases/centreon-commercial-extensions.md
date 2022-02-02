@@ -49,7 +49,6 @@ Release date: `December 16, 2021`
  - Disabled Business Activities are now displayed as disabled even after restarting centreon-map service
  - HeapDumpPath is now pointing to the proper folder (/var/log/centreon-map folder)
  - Metrics labels with specific characters and white spaces are now supported
-   > You may need to apply the following [fix](../graph-views/troubleshooter#metric-links-are-black-after-updating-map) after updating/upgrading MAP.
  - Service elements in a view are not clickable anymore
  - Metrics not following the naming specification do not cause map server to crash anymore
 
@@ -80,6 +79,24 @@ Release date: `December 16, 2021`
 - Compatibility with Centreon 21.04
 
 ## Centreon BAM
+
+### 21.04.1
+
+`January 21, 2022`
+
+#### Improvements
+
+- Add Feature Flipping for Resources Status vs Legacy Pages
+- ACL: Authorize visualisation on child Business Activities even if not part of the same Business View
+- Add warning when enabling notifications for a BA, for the user to know about the necessity of setting notification commands
+
+#### Bugfixes
+
+- Fixed the message that appeared in a popup when deleting "Activités Métiers" (Fr language)
+- Fixed an error when generating poller configuration with a disabled BA linked to an escalation task
+- Fixed the relations between BA and escalations exported in RS engine conf regardless of whether the BA is linked to the RS or not
+- Fixed the alignment of "required" input text on panel in Add Business Activity
+- Fixed MBI menu entry that was not visible after upgrade from 19.10 to 21.10.0-beta.2 due to BAM module
 
 ### 21.04.0
 

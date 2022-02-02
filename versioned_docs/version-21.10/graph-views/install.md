@@ -66,7 +66,7 @@ team](https://centreon.force.com/) to get & install your license key.
 
 Hardware requirements for your dedicated Centreon MAP server are as follows:
 
-| *Monitored services*     | \< 10 000               | \< 20 000            | \< 40 000            | \> 40 000            |
+| *Monitored services*     | < 10 000                | < 20 000             |  < 40 000            |  > 40 000            |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
 | *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
 | *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
@@ -227,14 +227,14 @@ you need to install the `centreon-release` package:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
+dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 </TabItem>

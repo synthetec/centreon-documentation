@@ -69,7 +69,7 @@ UDP/161.
 
 Afin d'obtenir plus d'information sur la configuration SNMP, il est recommandé de se référer à la
 documentation officielle de Cisco pour ces équipements: 
-https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint\.
+https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide/maint.html.
 
 ## Installation
 
@@ -110,7 +110,7 @@ yum install centreon-pack-hardware-devices-cisco-cts-snmp
 * Remplir les champs "Nom", "Alias", "Adresse IP / DNS", "Communauté Snmp" et "Version Snmp" selon la configuration de l'équipement
 * Ajouter le modèle *HW-Device-Cisco-Cts-SNMP*.
 
-  :warning: Si vous utilisez SNMP v3, configurer la macro SNMPEXTRAOPTIONS avec les paramètres adéquats
+  > Si vous utilisez SNMP v3, configurer la macro SNMPEXTRAOPTIONS avec les paramètres adéquats
 
 | Mandatory   | Name             | Description                                    |
 | :---------- | :--------------- | :--------------------------------------------- |

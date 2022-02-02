@@ -5,8 +5,8 @@
 /build
 
 # Generated files 
-.docusaurus
 .cache-loader
+.docusaurus/
 harmonize_tabs.php
 migrate_tabs.php
 clean_file.php
@@ -21,4 +21,3 @@ clean_file.php
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.yarn.lock

@@ -24,11 +24,7 @@ Your screen resolution must be at least 1280 x 768.
 Centreon provides RPM packages for its products through the Centreon Open
 Sources version available free of charge in our repository.
 
-These packages have been successfully tested in CentOS 7 and 8 environments.
-
-> Due to Red Hat's stance on CentOS 8, we suggest not to use said version for
-> your production environment. Nevertheless, these packages for CentOS 8 are
-> compatible with RHEL 8 and Oracle Linux 8 versions.
+Centreon supports the following operating systems: CentOS 7, RedHat/OracleLinux 7 or 8.
 
 Open Source users, without Support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
@@ -65,7 +61,7 @@ The table below describes requirements for installing Centreon:
 
 | Number of Services | Estimated number of hosts | Number of pollers     | Central       | Poller        |
 | ------------------ | ------------------------- | --------------------- | ------------- | ------------- |
-| \< 500             | 50                        | 1 central             | 1 vCPU / 1 GB |               |
+| < 500              | 50                        | 1 central             | 1 vCPU / 1 GB |               |
 | 500 - 2000         | 50 - 200                  | 1 central             | 2 vCPU / 2 GB |               |
 | 2000 - 7000        | 200 - 700                 | 1 central + 1 poller  | 4 vCPU / 4 GB | 1 vCPU / 4 GB |
 | 7000 - 14000       | 700 - 1400                | 1 central + 1 poller  | 4 vCPU / 8 GB | 2 vCPU / 4 GB |

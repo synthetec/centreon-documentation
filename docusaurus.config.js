@@ -1,16 +1,16 @@
-// @ts-check
+// @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs-prod.centreon.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
   // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
@@ -39,7 +39,7 @@ const config = {
         docs: {
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-          editLocalizedFiles : true,
+          editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
@@ -48,7 +48,7 @@ const config = {
               label: '⭐ 21.10',
             },
             21.04: {
-              label: '21.04',
+              label: ' 21.04',
             },
             '20.10': {
               label: '20.10',
@@ -60,6 +60,10 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-8418698-13',
+          anonymizeIP: true,
         },
       }),
     ],
@@ -77,6 +81,23 @@ const config = {
 
   plugins: [
     [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // Redirection EN
+          {
+            to: '/',
+            from: '/current/en/',
+          },
+          // Redirection FR
+          {
+            to: '/',
+            from: '/current/fr/',
+          },
+        ],
+      },
+    ],
+    [
       '@docusaurus/plugin-ideal-image',
       {
         quality: 70,
@@ -85,8 +106,7 @@ const config = {
         steps: 2, // the max number of images generated between min and max (inclusive)
       },
     ],
-
-    require.resolve('docusaurus-plugin-image-zoom'),
+    'plugin-image-zoom',
   ],
 
   themeConfig:
@@ -108,6 +128,8 @@ const config = {
         isCloseable: false,
       },
 
+      zoomSelector: '.markdown :not(.authority-availability) > img',
+
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
@@ -125,30 +147,15 @@ const config = {
         ],
       },
 
-      googleAnalytics: {
-        trackingID: 'UA-8418698-13',
-        anonymizeIP: true,
-      },
-
-      zoom: {
-        selector: '.markdown :not(em) > img',
-        config: {
-          background: {
-            light: 'rgb(255, 255, 255)',
-            dark: 'rgb(50, 50, 50)',
-          },
-        },
-      },
-
       hideableSidebar: true,
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: 'light',
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
 
       navbar: {
-        hideOnScroll: false,
+        hideOnScroll: true,
         title: 'Centreon Docs',
         logo: {
           alt: 'Logo Centreon Docs',

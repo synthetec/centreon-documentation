@@ -477,6 +477,10 @@
             },
             {
               "type": "doc",
+              "id": "version-20.10/graph-views/configure"
+            },
+            {
+              "type": "doc",
               "id": "version-20.10/graph-views/remote-server"
             },
             {
@@ -689,6 +693,10 @@
           "type": "category",
           "label": "Upgrade",
           "items": [
+            {
+              "type": "doc",
+              "id": "version-20.10/upgrade/introduction"
+            },
             {
               "type": "doc",
               "id": "version-20.10/upgrade/upgrade-from-20-04"
@@ -3384,30 +3392,6 @@
             {
               "type": "doc",
               "id": "version-20.10/developer/developer-broker-mapping"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Monitoring your platform",
-      "items": [
-        {
-          "type": "category",
-          "label": "Centreon HA",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/centreon-ha/monitoring-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/centreon-ha/operating-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-20.10/administration/centreon-ha/troubleshooting-guide"
             }
           ]
         }

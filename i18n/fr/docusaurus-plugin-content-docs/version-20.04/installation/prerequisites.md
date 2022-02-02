@@ -60,7 +60,7 @@ Le tableau suivant présente les prérequis pour une installation de Centreon :
 
 | Nombre de services | Nombre d'hôtes estimé | Nombre de collecteurs     | Central       | Collecteur    |
 | ------------------ | --------------------- | ------------------------- | ------------- | ------------- |
-| \< 500             | 50                    | 1 central                 | 1 vCPU / 1 GB |               |
+| < 500              | 50                    | 1 central                 | 1 vCPU / 1 GB |               |
 | 500 - 2000         | 50 - 200              | 1 central                 | 2 vCPU / 2 GB |               |
 | 2000 - 7000        | 200 - 700             | 1 central + 1 collecteur  | 4 vCPU / 4 GB | 1 vCPU / 4 GB |
 | 7000 - 14000       | 700 - 1400            | 1 central + 1 collecteur  | 4 vCPU / 8 GB | 2 vCPU / 4 GB |
@@ -112,7 +112,7 @@ Description des partitions :
 | swap                       | 1 à 1.5 la taille totale de la mémoire vive                                                                 |
 | /                          | au moins 20 Go                                                                                              |
 | /var/log                   | au moins 10 Go                                                                                              |
-| /var/lib/centreon          | [défini dans le chapitre précédant](#define-disk-space)                                                     |
+| /var/lib/centreon          | [défini dans le chapitre précédent](#definition-de-lespace-disque)                                                     |
 | /var/lib/centreon-broker   | au moins 5 Go                                                                                               |
 | /var/cache/centreon/backup | au moins 10 Go (penser à exporter les sauvegarde de manière régulière puis supprimer les données exportées) |
 
@@ -128,7 +128,7 @@ Description des partitions :
 | swap                       | 1 à 1.5 la taille totale de la mémoire vive                                                                 |
 | /                          | au moins 20 Go                                                                                              |
 | /var/log                   | au moins 10 Go                                                                                              |
-| /var/lib/mysql             | [défini dans le chapitre précédant](#define-disk-space)                                                     |
+| /var/lib/mysql             | [défini dans le chapitre précédent](#definition-de-lespace-disque)                                                      |
 | /var/cache/centreon/backup | au moins 10 Go (penser à exporter les sauvegarde de manière régulière puis supprimer les données exportées) |
 
 

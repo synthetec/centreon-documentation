@@ -21,7 +21,7 @@ MariaDB dump (backup) of your `centreon_studio` database. This will
 allow you easily to roll back to the previous state if necessary.
 
 Be sure to read the release notes for an explanation of features, fixes
-& custom procedures. Please note that [applying a fix](../graph-views/troubleshooter#metric-links-are-black-after-updating-map) may be necessary if you update MAP to version 21.10.1 or later.
+& custom procedures.
 
 **When you're upgrading to a new major or minor version (i.e:A.B.x with
 A or B that changes) you need to contact our Support service to retrieve
@@ -52,14 +52,14 @@ Run the following commands to upgrade your Centreon MAP server:
 <TabItem value="RHEL / CentOS / Oracle Linux 8" label="RHEL / CentOS / Oracle Linux 8">
 
 ```shell
-dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-2.el8.noarch.rpm
+dnf install https://yum.centreon.com/standard/21.10/el8/stable/noarch/RPMS/centreon-release-21.10-5.el8.noarch.rpm
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-2.el7.centos.noarch.rpm
+yum install https://yum.centreon.com/standard/21.10/el7/stable/noarch/RPMS/centreon-release-21.10-5.el7.centos.noarch.rpm
 ```
 
 </TabItem>

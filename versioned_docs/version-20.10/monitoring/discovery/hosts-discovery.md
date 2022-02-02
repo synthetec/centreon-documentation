@@ -139,11 +139,11 @@ discovery jobs.
 
 The status of a job can be:
 
-  - Scheduled <img src={require('../../assets/monitoring/discovery/host-discovery-scheduled.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Running <img src={require('../../assets/monitoring/discovery/host-discovery-running.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Saving <img src={require('../../assets/monitoring/discovery/host-discovery-saving.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Finished <img src={require('../../assets/monitoring/discovery/host-discovery-finished.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Failed <img src={require('../../assets/monitoring/discovery/host-discovery-failed.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+  - Scheduled ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png#thumbnail1)
+  - Running ![image](../../assets/monitoring/discovery/host-discovery-running.png#thumbnail1)
+  - Saving ![image](../../assets/monitoring/discovery/host-discovery-saving.png#thumbnail1)
+  - Finished ![image](../../assets/monitoring/discovery/host-discovery-finished.png#thumbnail1)
+  - Failed ![image](../../assets/monitoring/discovery/host-discovery-failed.png#thumbnail1)
 
 If a job is on a *Failed* status, hover on to the icon to know the reason.
 
@@ -152,11 +152,11 @@ If a job is on a *Finished* status, click on it to analyse the result. See
 
 Several actions can be done on jobs:
 
-  - Jobs can be re-executed using the *Force execution* action <img src={require('../../assets/monitoring/discovery/host-discovery-force-execution.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - They can also be edited <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - Or even deleted <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - If the job is scheduled, it can be paused <img src={require('../../assets/monitoring/discovery/host-discovery-pause.png').default} style={{width:'25px', marginBottom:'-6px'}} />
-  - And resumed <img src={require('../../assets/monitoring/discovery/host-discovery-resume.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+  - Jobs can be re-executed using the *Force execution* action ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png#thumbnail1)
+  - They can also be edited ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+  - Or even deleted ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+  - If the job is scheduled, it can be paused ![image](../../assets/monitoring/discovery/host-discovery-pause.png#thumbnail1)
+  - And resumed ![image](../../assets/monitoring/discovery/host-discovery-resume.png#thumbnail1)
 
 ## Analyse a discovery job result
 
@@ -166,10 +166,10 @@ visualize the result.
 ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
 The mappers linked to this job can be edited and applied directly on the result
-by clicking the edit action <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+by clicking the edit action ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
 Select the hosts you want to add to the configuration and click on the save
-action <img src={require('../../assets/monitoring/discovery/host-discovery-hosts-save.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+action ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
 A task will be launched in background to save the hosts and create the services
 linked to host templates.
@@ -191,7 +191,7 @@ On the panel on the right, every parameters of the job can be edited.
 
 Edition of the *mapper* will have a direct effect on the job result.
 
-Click on the *Save* icon <img src={require('../../assets/monitoring/discovery/host-discovery-save.png').default} style={{width:'25px', marginBottom:'-2px'}} />
+Click on the *Save* icon ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## How to use the *mappers*
 
@@ -234,7 +234,7 @@ Click on **SAVE** to add the *mapper*.
 ### Edit a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Edit* icon <img src={require('../../assets/monitoring/discovery/host-discovery-edit.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+section, click on the *Edit* icon ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
 Change any fields wanted or even the type of *mapper*.
 
@@ -243,7 +243,7 @@ Click on **SAVE** to save the *mapper*.
 ### Delete a *mapper*
 
 From the job wizard at step four, or from the edition panel in the *Mappers*
-section, click on the *Delete* icon <img src={require('../../assets/monitoring/discovery/host-discovery-delete.png').default} style={{width:'25px', marginBottom:'-6px'}} />
+section, click on the *Delete* icon ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
 
 A popin window will ask you to confirm the action.
 

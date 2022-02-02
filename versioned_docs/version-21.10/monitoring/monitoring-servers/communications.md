@@ -29,14 +29,14 @@ Communication modes are listed below:
 
 | Communications                         | Allowed actions                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 <TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                         | Allowed actions                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 </Tabs>
@@ -51,28 +51,28 @@ acknowledgements, etc and configuration export.
 
 | Communications                                                    | Allowed actions                                                           |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Remote** <-- *ZMQ* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 <TabItem value="Mixed" label="Mixed">
 
 | Communications                                                    | Allowed actions                                                           |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **Central** \<-- *ZMQ* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
+| **Central** <-- *ZMQ* --\> **Remote** <-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection, Host Discovery |
 
 </TabItem>
 <TabItem value="Legacy (ex-Centcore)" label="Legacy (ex-Centcore)">
 
 | Communications                                                    | Allowed actions                                                                                       |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **Central** \<-- *SSH* --\> **Remote** \<-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
+| **Central** <-- *SSH* --\> **Remote** <-- *SSH* --\> **Poller** | Monitoring actions\*, Engine/Broker statistics collection (Remote only), Host Discovery (Remote only) |
 
 </TabItem>
 <TabItem value="Other (not recommended)" label="Other (not recommended)">
 
 | Communications                                                    | Allowed actions      |
 | ----------------------------------------------------------------- | -------------------- |
-| **Central** \<-- *SSH* --\> **Remote** \<-- *ZMQ* --\> **Poller** | Monitoring actions\* |
+| **Central** <-- *SSH* --\> **Remote** <-- *ZMQ* --\> **Poller** | Monitoring actions\* |
 
 > This mode does not allow to retrieve Remote's thumbprint therefore it's
 > not possible to display Poller's Gorgone configuration from Centreon UI.
@@ -102,7 +102,7 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon on the line corresponding to your Poller <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
+icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 A pop-in will show the configuration to copy into the **Poller terminal**.
 Click on **Copy to clipboard**.
 
@@ -210,9 +210,8 @@ Click on **Save**.
 #### Display Gorgone configuration
 
 From the Pollers listing, click on the **Display Gorgone configuration** action
-icon on the line corresponding to your Remote Server <img src={require('../../assets/monitoring/monitoring-servers/gorgone-configuration.png').default} style={{width:'24px', marginBottom:'-6px'}} />
-A pop-in will show the configuration to copy into the **Remote Server
-terminal**.
+icon on the line corresponding to your Remote Server ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
+A pop-in will show the configuration to copy into the **Remote Server terminal**.
 Click on **Copy to clipboard**.
 
 ![image](../../assets/monitoring/monitoring-servers/remote-gorgone-display-config.png)
