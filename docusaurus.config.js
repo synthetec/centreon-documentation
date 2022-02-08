@@ -42,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10','21.04','20.10','20.04'],
+          onlyIncludeVersions: ['21.10'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
@@ -76,10 +76,19 @@ const config = {
       defer: false,
     },
   ],
-  
+
   themes: [],
 
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'cloud',
+        path: 'cloud',
+        routeBasePath: 'cloud',
+        sidebarPath: require.resolve('./cloud/sidebars.js'),
+      },
+    ],
     [
       '@docusaurus/plugin-ideal-image',
       {
@@ -151,6 +160,14 @@ const config = {
             docId: 'getting-started/installation-first-steps',
             position: 'right',
             label: 'Documentation',
+          },
+          {
+            //type: 'doc',
+            //docId: 'getting-starte',
+            position: 'right',
+            label: 'Cloud',
+            to: '/cloud/getting_started',
+            activeBaseRegex: `/cloud/`,
           },
           {
             type: 'search',
