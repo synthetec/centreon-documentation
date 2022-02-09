@@ -8,13 +8,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Centreon Documentation',
   tagline: '',
-  url: 'https://docs-prod.centreon.com',
+  url: 'https://docs-staging.centreon.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-centreon.png',
-  // organizationName: 'Centreon Documentation', // Usually your GitHub org/user name.
-  projectName: 'Centreon Documentation', // Usually your repo name.
+  organizationName: 'Centreon',
+  projectName: 'Centreon Documentation',
 
   noIndex: true,
 
@@ -42,7 +42,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: ['21.10', '21.04', '20.10', '20.04'],
+          onlyIncludeVersions: ['21.10','21.04','20.10','20.04'],
           versions: {
             '21.10': {
               label: '⭐ 21.10',
@@ -81,23 +81,6 @@ const config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          // Redirection EN
-          {
-            to: '/',
-            from: '/current/en/',
-          },
-          // Redirection FR
-          {
-            to: '/',
-            from: '/current/fr/',
-          },
-        ],
-      },
-    ],
-    [
       '@docusaurus/plugin-ideal-image',
       {
         quality: 70,
@@ -122,7 +105,7 @@ const config = {
       announcementBar: {
         id: 'announcementBar-1',
         content:
-          'Research is not available at the moment. Thanks for your patience and understanding',
+          'The search feature is not available at the moment. Thank you for your patience and understanding.',
         backgroundColor: '#ebedf0',
         textColor: '#091E42',
         isCloseable: false,
@@ -155,7 +138,7 @@ const config = {
       },
 
       navbar: {
-        hideOnScroll: true,
+        hideOnScroll: false,
         title: 'Centreon Docs',
         logo: {
           alt: 'Logo Centreon Docs',
@@ -188,8 +171,6 @@ const config = {
             type: 'localeDropdown',
             position: 'right',
           },
-          /*{to: '/blog', label: 'Blog', position: 'left'},
-          {href: '', label: 'GitHub', position: 'right'},*/
         ],
       },
       footer: {
