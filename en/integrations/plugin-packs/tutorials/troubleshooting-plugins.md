@@ -272,3 +272,20 @@ command manually with the NRPE user.
 
 Most of the time, it's due to unsufficient rights (missing execution bit or wrong 
 owner) or a missing dependency at code level. 
+
+## MySql checks
+
+### UNKNOWN: Cannot connect: Access denied for user 'USERNAME'@'localhost'
+
+This error is pretty explicit, the database user set on the service or the service template is not authorized to access the database.
+
+You can verify access by trying to log in as USERNAME on the distant database. 
+
+## Oracle database checks
+
+### UNKNOWN: Cannot connect: (no error string)
+
+You may get this error in centreon web interface but not when running the check command in commandline as `centreon-engine` user. 
+
+This may be because you have installed perl DBD oracle dependency as root. 
+You will have to unset environment variables related to Perl and do the again the installation of the perl oracle dependency while being `centreon-engine`. 

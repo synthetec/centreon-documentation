@@ -275,3 +275,20 @@ command manually with the NRPE user.
 
 Most of the time, it's due to unsufficient rights (missing execution bit or wrong 
 owner) or a missing dependency at code level. 
+
+## MySql checks
+
+### UNKNOWN: Cannot connect: Access denied for user 'USERNAME'@'localhost'
+
+Cette erreur est explicite, l'utilisateur de la base de données renseigné sur le service ou sur le modèle de service n'est pas autorisé à interroger la base.
+
+Vous pouvez vérifier l'accès en essayant de vous connecter à la base avec l'utilisateur USERNAME.
+
+## Oracle database checks
+
+### UNKNOWN: Cannot connect: (no error string)
+
+Vous pouvez obtenir cette erreur dans l'interface web de Centreon mais pas lorsque vous exécuter la sonde directement en ligne de commande sous l'utilisateur `centreon-engine`.
+
+Cela peut arriver si l'installation de la dépendance perl DBD oracle a été faite par root. 
+Vous allez devoir indéfinir les variables d'environnement Perl et réinstaller les dépendances perl Oracle en tant que `centreon-engine`. 
