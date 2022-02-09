@@ -37,9 +37,7 @@ pipeline {
        when { branch 'staging' }
        steps {
          sh 'rsync -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
-         /*TODO : invalidate cloudfront cache
-         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
-         */
+         sh 'aws cloudfront create-invalidation --distribution-id E4YWX2X3MLBMI --paths "/*"'
        }
      }
      stage('Deploy documentation to production') {
