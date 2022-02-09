@@ -37,7 +37,9 @@ pipeline {
        when { branch 'staging' }
        steps {
          sh 'rsync -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
-         sh 'aws cloudfront create-invalidation --distribution-id E4YWX2X3MLBMI --paths "/*"'
+          /*TODO : invalidate cloudfront cache
+         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_PROD --paths "/*"'
+         */
        }
      }
      stage('Deploy documentation to production') {
@@ -45,9 +47,7 @@ pipeline {
        steps {
          input message: 'Deploying to production? (Click "Proceed" to continue)'
          sh 'ssh -o StrictHostKeyChecking=no admin@docs-dev.int.centreon.com rsync -arzvh --delete /var/www/html admin@docs.int.centreon.com:/var/www/'
-         /*TODO : invalidate cloudfront cache
-         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_PROD --paths "/*"'
-         */
+         sh 'aws cloudfront create-invalidation --distribution-id E4YWX2X3MLBMI --paths "/*"'
        }
      }
    }
