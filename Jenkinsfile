@@ -30,8 +30,8 @@ pipeline {
          input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
          sh 'aws s3 sync --delete build s3://centreon-documentation-dev/'
          sh 'aws cloudfront create-invalidation --distribution-id E1BCVJJJ9ZUAQZ  --paths "/*"'
-     }
-      
+      }
+    }  
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
