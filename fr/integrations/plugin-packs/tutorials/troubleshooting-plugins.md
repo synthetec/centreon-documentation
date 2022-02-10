@@ -288,7 +288,14 @@ Vous pouvez vérifier l'accès en essayant de vous connecter à la base avec l'u
 
 ### UNKNOWN: Cannot connect: (no error string)
 
-Vous pouvez obtenir cette erreur dans l'interface web de Centreon mais pas lorsque vous exécuter la sonde directement en ligne de commande sous l'utilisateur `centreon-engine`.
+Cela peut se produire si la dépendance perl DBD oracle est installée dans un répertoire seulement accessible par root. 
+Pour y remédier, vous allez devoir indéfinir les variables d'environnement suivantes et rejouer l'installation de la dépendance :
+```
+PERL_MM_OPT
+PERL_LOCAL_LIB_ROOT
+PERL_MB_OPT
+PERL5LIB
+``` 
+Rejouer l'installation sans ces variables va permettre à root d'installer la dépendance perl pour tous les utilisateurs, et pas seulement pour root.
 
-Cela peut arriver si l'installation de la dépendance perl DBD oracle a été faite par root. 
-Vous allez devoir indéfinir les variables d'environnement Perl et réinstaller les dépendances perl Oracle en tant que `centreon-engine`. 
+Si la réinstallation n'a pas réglé le problème et que vous avez toujours la même erreur, vérifiez que dans le fichier `/etc/ld.so.conf.d/oracle.conf` vous avez bien le chemin suivant déclaré `/usr/lib/oracle/[VERSION]/client64/lib`, si ce n'est pas le cas ajoutez-le et exécutez `/sbin/ldconfig`.

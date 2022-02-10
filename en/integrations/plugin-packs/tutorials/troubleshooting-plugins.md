@@ -285,7 +285,16 @@ You can verify access by trying to log in as USERNAME on the distant database.
 
 ### UNKNOWN: Cannot connect: (no error string)
 
-You may get this error in centreon web interface but not when running the check command in commandline as `centreon-engine` user. 
+You may get this error in centreon web interface but not when running the check command in commandline as `centreon-engine` user or `root` user. 
 
-This may be because you have installed perl DBD oracle dependency as root. 
-You will have to unset environment variables related to Perl and do the again the installation of the perl oracle dependency while being `centreon-engine`. 
+This may be because perl DBD oracle dependency is installed in a directory that is only available for root user. 
+To correct this, you will have to unset the following environment variables and do again the installation of the perl dependancy: 
+```
+PERL_MM_OPT
+PERL_LOCAL_LIB_ROOT
+PERL_MB_OPT
+PERL5LIB
+``` 
+Repeating the install without these variables will let root install the perl dependancies for all users, instead of only root. 
+
+If the reinstall hasn't solved the case and you still have this error, please verify that in `/etc/ld.so.conf.d/oracle.conf` you have the following statement `/usr/lib/oracle/[VERSION]/client64/lib`, else add it and execute `/sbin/ldconfig`.
