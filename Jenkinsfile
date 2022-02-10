@@ -30,15 +30,14 @@ pipeline {
          input message: 'Deploy PR to prewiew platform? (Click "Proceed" to continue)'
          sh 'aws s3 sync --delete build s3://centreon-documentation-dev/'
          sh 'aws cloudfront create-invalidation --distribution-id E1BCVJJJ9ZUAQZ  --paths "/*"'
-       }
      }
       
      stage('Deploy documentation to staging') {
        when { branch 'staging' }
        steps {
-         sh 'rsync -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
-          /*TODO : invalidate cloudfront cache
-         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_PROD --paths "/*"'
+         sh 'rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/'
+         /*TODO : invalidate cloudfront cache
+         sh 'aws cloudfront create-invalidation --distribution-id ID_DISTRIB_STAGING --paths "/*"'
          */
        }
      }
