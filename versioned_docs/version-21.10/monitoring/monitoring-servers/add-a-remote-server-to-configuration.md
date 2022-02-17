@@ -220,6 +220,9 @@ it with the following command from the **Central server**:
 >
 > This mode should not be used anymore as it does not allow data
 > synchronisation between Central and Remote Server UI.
+    
+</TabItem>
+</Tabs>
 
 ## Step 3: Export the configuration
 
@@ -240,9 +243,6 @@ configuration**.
     Central Broker.
 
     ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
-
-</TabItem>
-</Tabs>
 
 ## Getting started
 
